@@ -3,25 +3,20 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import tensorflow_hub as hub
-from sklearn import preprocessing
 import spacy
-from spacy.lang.en import English
-from spacy import displacy
-nlp = spacy.load("en_core_web_sm")
 import textract
-import nltk
-from nltk.tokenize import word_tokenize
+
+nlp = spacy.load("en_core_web_sm")
 
 def creat_emb(path):
+# For very first formation of embeddings and id
     try:
         embeddings=np.loadtxt('embeddings.npz')                     # loading the already existing embeddings and test ids
         id=np.loadtxt('id.npz')
     except:
         id=[]                                                       # initializing the lists if they do not exist
         embeddings=[]
-
-    # embeddings=np.loadtxt('embeddings.npz')
-    # id=np.loadtxt('id.npz')
+# Text preprocessing
     import re
     text = textract.process(path)
     text = str(text)
@@ -38,33 +33,27 @@ def creat_emb(path):
             else:
                 temp+=j
         lst[int(temp)] = i
-    embed = hub.KerasLayer(r'C:\\Users\\Janvi Thakkar\\Desktop\\projects\\nlp_example')
 
-    # id=[]
-    # embeddings=[]
-    path = r'C:\\Users\\Janvi Thakkar\\Desktop\\projects\\Capegemini\\separate_test_doc'
+# lst -> a dictionary containing the test ids
+# loading the Universal Sentence Encoder (USE) pre-trained model 
+    embed = hub.KerasLayer(r'address of the directory where model has been extracted')
+
+# storing the text separately for each test case using their test ids
+    path = r'path of the folder containing the text files of each test case separate_test_doc'
+
+# Creating embeddings of each test case seaparately and storing it in the list of lists - embeddings
     for j in lst:
-        # t = []
-        # doc = nlp(lst[j])
-        # t.append(str(doc))
-        # lst[j] = t
         file = str(j)+'.txt'
         dir_list = os.listdir(path)
         if(file not in dir_list):
             with open(os.path.join(path, file), 'w') as fp:
-                # id.append(j)
-                # t=[]
                 doc = nlp(lst[j])
                 print(str(doc))
-                # t.append(str(doc))
-                # temprary = embed(t)
-                # embeddings.append(temprary[0])
                 fp.write(str(doc))
 
     for k in dir_list:
         with open(os.path.join(path, k), 'r') as fp:
             (file, ext) = os.path.splitext(k)
-            # print(file)
             if(int(file) not in id):
                 id.append(int(file))
                 t=[]
@@ -75,8 +64,8 @@ def creat_emb(path):
                 embeddings.append(temprary[0])
     # print(id)
     # print(embeddings)
-    np.savetxt('embeddings.npz',embeddings)
-    np.savetxt('id.npz',id)
+    np.savetxt('embeddings.npz',embeddings)                     # an npz file for storing the embeddings
+    np.savetxt('id.npz',id)                                     # an npz file to store the corresponding test ids    
     print("saved")
     # print(embeddings)
 
