@@ -1,22 +1,22 @@
+# importing some essential libraries
 import os
 import numpy as np
 import pandas as pd
 import tensorflow as tf
 import tensorflow_hub as hub
-from sklearn import preprocessing
 import spacy
-from spacy.lang.en import English
-from spacy import displacy
-nlp = spacy.load("en_core_web_sm")
 from sklearn.metrics.pairwise import cosine_similarity
 from convert_to_csv import To_csv
 
-embed = hub.KerasLayer(r'C:\\Users\\Janvi Thakkar\\Desktop\\projects\\nlp_example')
+nlp = spacy.load("en_core_web_sm")
+embed = hub.KerasLayer("address of the directory where the model is extracted", trainable= True)             # calling the downloaded USE model
 
-embeddings=np.loadtxt('embeddings.npz')
-id=np.loadtxt('id.npz')
+embeddings=np.loadtxt('embeddings.npz')                         # loading the stored embeddings of all the test cases present
+id=np.loadtxt('id.npz')                                         # loading a list containing the test ids
 l = len(id)
 
+
+# starting the chief search
 while True:
     print("Enter some keywords or a test ID number")
     search_string = input()
@@ -71,41 +71,3 @@ while True:
         continue
     else:
         break
-
-
-
-
-
-
-
-
-
-
-# while True:
-
-#     search_string = input('Type your search:')
-
-#     results_returned = "6" 
-#     try:
-#         no = float(search_string)
-#         if no in id:
-#             print('yes')
-#             index=0
-#             for k in range(0,len(id)):
-#                 if(no == id[k]):
-#                     index = k
-#                     break
-#             embeddings2 = [embeddings[index]]
-#         else:
-#             print("You entered an invalid test ID")
-#     except:
-# 	    embeddings2 = embed([search_string])
-
-
-#     cosine_similarities = pd.Series(cosine_similarity(embeddings2, embeddings).flatten())
-#     for i,j in cosine_similarities.nlargest(int(results_returned)).iteritems():
-#         print(id[int(i)])
-#     value = input("Want to search next? \n Y/N : ")
-#     if(value == 'N'):
-#         break 
-    
