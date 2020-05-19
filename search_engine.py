@@ -41,9 +41,10 @@ while True:
 
 # comparing the test cases by using the embeddings and cosine similarity scores
     cosine_similarities = pd.Series(cosine_similarity(embeddings2, embeddings).flatten())
+    threshold = float(input('Set the threshold (type in range of 0-1) :'))
     for i,j in cosine_similarities.nlargest(l).iteritems():
         output.append(int(id[int(i)]))
-        if (j>0.4):
+        if (j>threshold):
             final_output.append(int(id[int(i)]))
 
 
