@@ -7,10 +7,15 @@ Pre-Processing of Data - Data preprocessing is done to make the text in a form t
 
 a) Downloading the model from the given link:
 https://tfhub.dev/google/universal-sentence-encoder-large/5
+
 b) Zip file name 5.tar will be downloaded (Please do not change this name)
+
 c) Extract all files in the project folder.
+
 d) Create two folders named: “separate_test_doc” & “main_document”.
+
 e) Download 8 python code files from the Github Repository ( https://github.com/SoniSiddharth/Impact_analysis ), the files are as follows: ( “automate_cre.py”, “automate_up.py”, “convert_to_csv.py”, “embeddings_update.py”, “graph_plot.py”, “pre_process.py”, “search_engine.py”, “update_emb.py” )
+
 f) Make the changes in each file as mentioned below in step "8)".
 
 g)To create the first embeddings of the test cases - 
