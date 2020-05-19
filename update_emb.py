@@ -27,7 +27,6 @@ def update_emb(path):
             index_in_embedding = i 
             break 
 # creating the embeddings of the test case again using the USE model
-    embed = hub.KerasLayer("C:/Users/HP/Desktop/Capgemini", trainable= True)
     with open(path, 'r') as fp:
         t=[]
         lines = fp.read()
