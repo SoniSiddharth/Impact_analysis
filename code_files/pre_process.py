@@ -36,10 +36,10 @@ def creat_emb(path):
 
 # lst -> a dictionary containing the test ids
 # loading the Universal Sentence Encoder (USE) pre-trained model 
-    embed = hub.KerasLayer(r'address of the directory where model has been extracted')
+    embed = hub.KerasLayer(r'model_use')
 
 # storing the text separately for each test case using their test ids
-    path = r'path of the folder containing the text files of each test case separate_test_doc'
+    path = r'separate_test_doc'
 
 # Creating embeddings of each test case seaparately and storing it in the list of lists - embeddings
     for j in lst:
