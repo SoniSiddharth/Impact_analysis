@@ -9,7 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from convert_to_csv import To_csv
 
 nlp = spacy.load("en_core_web_sm")
-embed = hub.KerasLayer("address of the directory where the model is extracted", trainable= True)             # calling the downloaded USE model
+embed = hub.KerasLayer("model_use", trainable= True)             # calling the downloaded USE model
 
 embeddings=np.loadtxt('embeddings.npz')                         # loading the stored embeddings of all the test cases present
 id=np.loadtxt('id.npz')                                         # loading a list containing the test ids
