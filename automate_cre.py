@@ -30,7 +30,7 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
 		
 
 if __name__ == "__main__": 
-	src_path = r"path to directory main_document"
+	src_path = r"main_document"
 	event_handler = Handler() 
 	observer = watchdog.observers.Observer() 
 	observer.schedule(event_handler, path=src_path, recursive=True) 
