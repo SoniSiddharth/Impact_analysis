@@ -10,7 +10,7 @@ from convert_to_csv import To_csv
 
 
 nlp = spacy.load("en_core_web_sm")
-embed = hub.KerasLayer("address of the directory where model has been extracted", trainable= True) # Calling the downloaded USE model
+embed = hub.KerasLayer("model_use", trainable= True) # Calling the downloaded USE model
 
 embeddings=np.loadtxt('embeddings.npz') # Loading the stored embeddings of all the test cases present
 id=np.loadtxt('id.npz') # Loading a list containing the test ids
