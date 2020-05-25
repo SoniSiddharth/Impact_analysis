@@ -8,7 +8,7 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 
 # calling the USE model
-embed = hub.KerasLayer(r'directory where model has been extracted')
+embed = hub.KerasLayer(r'model_use')
 
 # a function for updating the embeddings of the test cases which have been updated
 def update_emb(path):
