@@ -32,8 +32,10 @@ f)To create the first embeddings of the test cases -
 If the given keyword is not found as per the threshold value, the tool will ask if the user still wants to search some similar matching test-cases (y/n). If yes, then type ‘y’ and enter. 
 
   7) After the search is completed, you will get the excel/.csv file containing the output of the search. The name of the file will be of the format: “Similar_to_SearchedString.csv”.
+  
+  8) To search for both test-id and keyword, you can run the "keyword+testid.py" file and enter the input values asked in the command line.
 
-The rest of the files do not require any change.
+g) To search on the GUI, run the "main_GUI.py" file (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the threshold value by editing the "threshold.csv" file.
 
 To update/modify the test cases:
 
