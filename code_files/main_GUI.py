@@ -12,7 +12,7 @@ from tkinter import *
 import requests
 
 nlp = spacy.load("en_core_web_sm")
-embed = hub.KerasLayer("C:/Users/HP/Desktop/Capgemini", trainable= True)
+embed = hub.KerasLayer("model_use", trainable= True)
 
 embeddings=np.loadtxt('embeddings.npz') # Loading the stored embeddings of all the test cases present
 id=np.loadtxt('id.npz') # Loading a list containing the test ids
