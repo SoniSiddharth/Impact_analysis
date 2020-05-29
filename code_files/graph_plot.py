@@ -19,8 +19,7 @@ y = pca.fit_transform(embeddings)
 # Similarity using a graph
 import chart_studio.plotly as py
 import plotly.graph_objs as go
-from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
-init_notebook_mode(connected=True)
+from plotly.offline import download_plotlyjs, plot
 
 data = [
 	go.Scatter( x=[i[0] for i in y], y=[j[1] for j in y], mode='markers', text=[k for k in id],
