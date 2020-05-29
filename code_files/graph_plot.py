@@ -1,4 +1,4 @@
-# Impoerting essential libraries
+# Importing essential libraries
 import os
 import numpy as np
 import pandas as pd
@@ -35,4 +35,4 @@ data = [
 layout = go.Layout()
 layout = dict(yaxis = dict(zeroline = False), xaxis = dict(zeroline = False))
 fig = go.Figure(data=data, layout=layout)
-file = plot(fig, filename='Sentence encode.html')
+file = plot(fig, filename='Search_Test_Case_plot.html')
