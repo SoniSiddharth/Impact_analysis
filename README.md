@@ -18,7 +18,7 @@ e) Create two folders named: “separate_test_doc” & “main_document” in fo
 
 f)To create the first embeddings of the test cases - 
 
-  1) Run the “automate_cre.py” file after making the essential changes in each file as mentioned below.
+  1) Run the “automate_cre.py” file.
   
   2) Place the document file containing the test cases (SampleTestCases.docx) in the “main_document” folder and terminate the process by selecting Ctrl+C, a file named “mainfile.data” will be created and then run embeddings_update.py.
   
@@ -37,6 +37,14 @@ If the given keyword is not found as per the threshold value, the tool will ask 
 
 g) To search on the GUI, run the "main_GUI.py" file (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the threshold value by editing the "threshold.csv" file.
 
+h) To get a grpah plot, run the "graph_plot.py". Enter the test-id for which you want to get the nearest test cases and press ENTER. A new graph plot will be shown on the screen along with their test-ids. 
+
 To update/modify the test cases:
 
-Run the “automate_up.py” file and do the required changes in the test cases (.txt files) from the folder “separate_test_doc” and then terminate the process running in “automate_up.py” by pressing Ctrl+C in the terminal window. A file named listfile.data will be created, you can go and check the time of the last modifications. And then run “embeddings_update.py”.
+If your test cases are in two or more .docx files then there are two steps you can follow:
+
+  1. Delete the existing .docx file from the "main_document" and save it somewhere. Run the "automate_cre.py" and place all the .docx files together in the "main_document" folder.
+  
+  2. Merge all the .docx files (along with the existing one) in a single doc file and after deleting the existing doc file from "main_document", run the "automate_cre.py" and place the Merged doc file in that folder.
+
+Now after doing any one of the above steps, terminate the "automate_cre.py" and run the "embeddings_update.py" file. You will get a message of embeddings getting saved.
