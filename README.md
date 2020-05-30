@@ -35,7 +35,7 @@ If the given keyword is not found as per the threshold value, the tool will ask 
   
   8) To search for both test-id and keyword, you can run the "keyword+testid.py" file and enter the input values asked in the command line.
 
-g) To search on the GUI, run the "main_GUI.py" file (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the threshold value by editing the "threshold.csv" file.
+g) To search on the GUI, run the "main_GUI.py" file (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the Default threshold value for all the three cases by editing the "threshold.csv" file.
 
 h) To get a grpah plot, run the "graph_plot.py". Enter the test-id for which you want to get the nearest test cases and press ENTER. A new graph plot will be shown on the screen along with their test-ids. 
 
