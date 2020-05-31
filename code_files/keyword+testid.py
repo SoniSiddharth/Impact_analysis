@@ -84,18 +84,18 @@ while True:
             temp = final_output_2
             print(temp) 
             search_string=str(search_id)
-            To_csv(temp, search_string, len(temp))
+            To_csv(temp, search_string, len(temp),threshold)
 
         elif further=="k" or further=="K": # Press 'k' to search on basis of keyword
             temp=final_output_1
             print(temp)
             search_string=search_str
-            To_csv(temp, search_string, len(temp))
+            To_csv(temp, search_string, len(temp),threshold)
             
     else:
         print(final_intersection_output)
         search_string=search_str + str(search_id)
-        To_csv(final_intersection_output, search_string, len(final_intersection_output)) # Storing the results in a .csv/excel file       
+        To_csv(final_intersection_output, search_string, len(final_intersection_output),threshold) # Storing the results in a .csv/excel file       
 
     value = input("Want to search next? y/n : ") # To continue your search
         
