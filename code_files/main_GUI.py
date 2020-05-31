@@ -170,7 +170,7 @@ root.geometry('500x500')
 root.title("Search Engine")
 
 #Keyword
-label_1=Label(root, text="Enter Keyword", width= 25, font=("bold", 12))
+label_1=Label(root, text="Enter Keyword", width= 25, font=("bold", 12), padx = 7)
 label_1.place(x=30, y=100)
 
 entry_1=tk.Entry(root, font=9)
@@ -184,7 +184,7 @@ entry_2=tk.Entry(root, font = 9)
 entry_2.place(x=250,y=160)
 
 # Threshold
-label_3=Label(root, text="Enter Threshold", width= 25, font=("bold", 12))
+label_3=Label(root, text="Enter Threshold", width= 25, font=("bold", 12), padx = 10)
 label_3.place(x=30, y=220)
 
 entry_3=tk.Entry(root, font = 9)
