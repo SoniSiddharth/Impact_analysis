@@ -61,10 +61,10 @@ while True:
                 results_returned = l
             temp = output[:results_returned]
             print(temp)
-            To_csv(temp, search_string, len(temp))
+            To_csv(temp, search_string, len(temp),threshold)
     else:
         print(final_output)
-        To_csv(final_output, search_string, len(final_output))           # storing the results in a .csv/excel file       
+        To_csv(final_output, search_string, len(final_output),threshold)           # storing the results in a .csv/excel file       
 
     value = input("Want to search next? y/n : ")                            # to continue your search
     
