@@ -97,11 +97,11 @@ def keytest(keyword,testid,thres):
             print("No match found above " + str(threshold) + " threshold. Try some lower value of threshold. However, here are some results in decreasing order of similarity which are quite similar to test-ids only:")
             print(final_output_2)
             search_string=search_str + str(search_id)
-            To_csv(final_output_2, search_string, len(final_output_2)) # Storing the results in a .csv/excel file
+            To_csv(final_output_2, search_string, len(final_output_2),threshold) # Storing the results in a .csv/excel file
         else:    
             print(final_intersection_output)
             search_string=search_str + str(search_id)
-            To_csv(final_intersection_output, search_string, len(final_intersection_output)) # Storing the results in a .csv/excel file
+            To_csv(final_intersection_output, search_string, len(final_intersection_output),threshold) # Storing the results in a .csv/excel file
 
     elif flag_word==0 and flag_id==1:
         
@@ -125,10 +125,10 @@ def keytest(keyword,testid,thres):
             print("No match found above " + str(threshold) + " threshold. Try some lower value of threshold. However, here are some results in decreasing order of similarity which are quite similar:")
             print(output_1)
             search_string=search_str
-            To_csv(output_1, search_string, len(output_1)) # Storing the results in a .csv/excel file
+            To_csv(output_1, search_string, len(output_1),threshold) # Storing the results in a .csv/excel file
         else:
             search_string=search_str
-            To_csv(final_output_1, search_string, len(final_output_1)) # Storing the results in a .csv/excel file
+            To_csv(final_output_1, search_string, len(final_output_1),threshold) # Storing the results in a .csv/excel file
 
     elif flag_word==1 and flag_id==0:
         try:
@@ -158,10 +158,10 @@ def keytest(keyword,testid,thres):
             print("No match found above " + str(threshold) + " threshold. Try some lower value of threshold. However, here are some results in decreasing order of similarity which are quite similar:")
             print(output_2)
             search_string = str(search_id)
-            To_csv(output_2, search_string, len(output_2)) # Storing the results in a .csv/excel file
+            To_csv(output_2, search_string, len(output_2),threshold) # Storing the results in a .csv/excel file
         else:
             search_string = str(search_id)
-            To_csv(final_output_2, search_string, len(final_output_2)) # Storing the results in a .csv/excel file
+            To_csv(final_output_2, search_string, len(final_output_2),threshold) # Storing the results in a .csv/excel file
     else:
         return
 
