@@ -6,7 +6,7 @@ import tensorflow_hub as hub
 import spacy
 from sklearn.metrics.pairwise import cosine_similarity
 from convert_to_csv import To_csv
-
+import tkinter.messagebox as tkmb
 import tkinter as tk
 from tkinter import *
 import requests
@@ -60,6 +60,8 @@ def keytest(keyword,testid,thres):
             embeddings3 = [embeddings[index]] # Embeddings of already existing test case
         except:
             print("No such test-id available")
+            info_message = "No such test-id available"
+            tkmb.showinfo("Output", info_message)
             return
 
         final_intersection_output=[] # Output containing the intersection of the two searches
@@ -94,14 +96,18 @@ def keytest(keyword,testid,thres):
                     final_intersection_output.append(final_output_2[i])
 
         if final_intersection_output==[]:
-            print("No match found above " + str(threshold) + " threshold. Try some lower value of threshold. However, here are some results in decreasing order of similarity which are quite similar to test-ids only:")
+            print("No match found above " + str(threshold) + " threshold. Try some lower values of threshold. However, here are some results in decreasing order of similarity which are quite similar to test-ids only:")
             print(final_output_2)
             search_string=search_str + str(search_id)
-            To_csv(final_output_2, search_string, len(final_output_2),threshold) # Storing the results in a .csv/excel file
+            To_csv(final_output_2, search_string, len(final_output_2), threshold) # Storing the results in a .csv/excel file
+            info_message = "No match found above " + str(threshold) + " threshold. Try some lower values of threshold. However, " + str(len(final_output_2)) + " top similar results are provided in the generated CSV file."
+            tkmb.showinfo("Output", info_message)
         else:    
             print(final_intersection_output)
             search_string=search_str + str(search_id)
-            To_csv(final_intersection_output, search_string, len(final_intersection_output),threshold) # Storing the results in a .csv/excel file
+            To_csv(final_intersection_output, search_string, len(final_intersection_output), threshold) # Storing the results in a .csv/excel file
+            info_message = 'CSV file created. ' + str(len(final_intersection_output)) + ' similar test cases found'
+            tkmb.showinfo("Output", info_message)
 
     elif flag_word==0 and flag_id==1:
         
@@ -122,13 +128,17 @@ def keytest(keyword,testid,thres):
         # print(final_output_1)
 
         if final_output_1==[]:
-            print("No match found above " + str(threshold) + " threshold. Try some lower value of threshold. However, here are some results in decreasing order of similarity which are quite similar:")
+            print("No match found above " + str(threshold) + " threshold. Try some lower values of threshold. However, here are some results in decreasing order of similarity which are quite similar:")
             print(output_1)
             search_string=search_str
-            To_csv(output_1, search_string, len(output_1),threshold) # Storing the results in a .csv/excel file
+            To_csv(output_1, search_string, len(output_1), threshold) # Storing the results in a .csv/excel file
+            info_message = "No match found above " + str(threshold) + " threshold. Try some lowers value of threshold. However, " + str(len(output_1)) + " top similar results are provided in the generated CSV file."
+            tkmb.showinfo("Output", info_message)
         else:
             search_string=search_str
-            To_csv(final_output_1, search_string, len(final_output_1),threshold) # Storing the results in a .csv/excel file
+            To_csv(final_output_1, search_string, len(final_output_1), threshold) # Storing the results in a .csv/excel file
+            info_message = str(len(final_output_1)) + ' similar test cases found.' + " CSV file has been created."
+            tkmb.showinfo("Output", info_message)
 
     elif flag_word==1 and flag_id==0:
         try:
@@ -155,13 +165,17 @@ def keytest(keyword,testid,thres):
         # print(output_2)
         # print(final_output_2)
         if final_output_2==[]:
-            print("No match found above " + str(threshold) + " threshold. Try some lower value of threshold. However, here are some results in decreasing order of similarity which are quite similar:")
+            print("No match found above " + str(threshold) + " threshold. Try some lower values of threshold. However, here are some results in decreasing order of similarity which are quite similar:")
             print(output_2)
             search_string = str(search_id)
-            To_csv(output_2, search_string, len(output_2),threshold) # Storing the results in a .csv/excel file
+            To_csv(output_2, search_string, len(output_2), threshold) # Storing the results in a .csv/excel file
+            info_message = "No match found above " + str(threshold) + " threshold. Try some lowers value of threshold. However, " + str(len(output_2)) + " top similar results are provided in the generated CSV file."
+            tkmb.showinfo("Output", info_message)
         else:
             search_string = str(search_id)
-            To_csv(final_output_2, search_string, len(final_output_2),threshold) # Storing the results in a .csv/excel file
+            To_csv(final_output_2, search_string, len(final_output_2), threshold) # Storing the results in a .csv/excel file
+            info_message = str(len(final_output_2)) + ' similar test cases found.' + " CSV file has been created."
+            tkmb.showinfo("Output", info_message)
     else:
         return
 
@@ -170,21 +184,21 @@ root.geometry('500x500')
 root.title("Search Engine")
 
 #Keyword
-label_1=Label(root, text="Enter Keyword", width= 25, font=("bold", 12), padx = 7)
+label_1=Label(root, text="Enter Keyword", width= 20, font=("bold", 12), padx = 7)
 label_1.place(x=30, y=100)
 
 entry_1=tk.Entry(root, font=9)
 entry_1.place(x=250,y=100)
 
 # TestId 
-label_2=Label(root, text="Enter Test-ID", width= 25, font=("bold", 12))
+label_2=Label(root, text="Enter Test-ID", width= 20, font=("bold", 12))
 label_2.place(x=30, y=160)
 
 entry_2=tk.Entry(root, font = 9)
 entry_2.place(x=250,y=160)
 
 # Threshold
-label_3=Label(root, text="Enter Threshold", width= 25, font=("bold", 12), padx = 10)
+label_3=Label(root, text="Enter Threshold", width= 20, font=("bold", 12), padx = 10)
 label_3.place(x=30, y=220)
 
 entry_3=tk.Entry(root, font = 9)
