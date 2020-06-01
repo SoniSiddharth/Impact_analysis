@@ -1,12 +1,15 @@
-# Impoerting essential libraries
+# Importing essential libraries
 import os
 import numpy as np
 import pandas as pd
+import tensorflow as tf
+import tensorflow_hub as hub
 import spacy
 import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.decomposition import PCA
 from matplotlib.widgets import TextBox
+import csv
 
 # Loading the embeddings and test ids
 embeddings=np.loadtxt('embeddings.npz')                 
@@ -18,20 +21,24 @@ pca = PCA(n_components=2)
 y = pca.fit_transform(embeddings)
 y1 = pca.fit_transform(embeddings)
 # print(y)
-
 names1=id 
 x=[i[0] for i in y]
 y=[j[1] for j in y]
 fig1,ax = plt.subplots()
 sc1 = plt.scatter( x,y,s=50,c=[[0.2,0.4,0.7]])
+# sc1 = plt.text(x+.03,y+.03,[k for k in id])
 
 for i,txt in enumerate(id):
-	ax.annotate(int(txt),(x[i],y[i]))
+	ax.annotate(txt,(x[i],y[i]))
 
 annot = ax.annotate("", xy=(0,0), xytext=(10,10),textcoords="offset points",
 					bbox=dict(boxstyle="round", fc="w"),
 					arrowprops=dict(arrowstyle="->"))
 annot.set_visible(True)
+
+default_t = pd.read_csv('threshold.csv')
+X = default_t.iloc[:,:].values
+threshold_testid = X[0][3]
 
 def update_annot(ind):
 
@@ -77,10 +84,11 @@ def subplt(ind):
 
 	k_largest=[]
 	n=[]
+	threshold=float(threshold_testid)
 	cosine_similarities = pd.Series(cosine_similarity([embeddings[ind]], embeddings).flatten())
 	for i,j in cosine_similarities.nlargest(len(id)).iteritems():
 		output.append(int(id[int(i)]))
-		if (j>0.6):
+		if (j>threshold):
 			# print(i)
 			n.append(int(id[int(i)]))
 			k_largest.append(y1[i])
