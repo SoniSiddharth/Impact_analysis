@@ -29,7 +29,7 @@ sc1 = plt.scatter( x,y,s=50,c=[[0.2,0.4,0.7]])
 # sc1 = plt.text(x+.03,y+.03,[k for k in id])
 
 for i,txt in enumerate(id):
-	ax.annotate(txt,(x[i],y[i]))
+	ax.annotate(int(txt),(x[i],y[i]))
 
 annot = ax.annotate("", xy=(0,0), xytext=(10,10),textcoords="offset points",
 					bbox=dict(boxstyle="round", fc="w"),
