@@ -8,10 +8,8 @@ import textract
 
 nlp = spacy.load("en_core_web_sm")
 
-def creat_emb(path):
-# For very first formation of embeddings and id
-    id=[]                                             #initializing empty arrays for id and their respectine embeddings          
-    embeddings=[]
+def creat_emb(path,id,embeddings):
+
 # Text preprocessing
     import re
     text = textract.process(path)
