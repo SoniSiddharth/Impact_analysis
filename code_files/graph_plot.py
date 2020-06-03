@@ -39,8 +39,6 @@ annot.set_visible(True)
 default_t = pd.read_csv('threshold.csv')
 X = default_t.iloc[:,:].values
 threshold_testid = X[0][3]
-results=X[0][4]
-results_r=int(results)
 
 def update_annot(ind):
 
@@ -96,19 +94,14 @@ def subplt(ind):
             # print(i)
             n.append(int(id[int(i)]))
             k_largest.append(y1[i])
-            if(results_r<len(n)):
-                    n_1=n[:results_r]
-                    k_1_largest=k_largest[:results_r]
-            else:
-                    n_1=n
-                    k_1_largest=k_largest
+            
     # print(k_largest)
-    subx=[i[0] for i in k_1_largest]
-    suby=[i[1] for i in k_1_largest]
+    subx=[i[0] for i in k_largest]
+    suby=[i[1] for i in k_largest]
     fig2,bx = plt.subplots()
     sc2 = plt.scatter(subx,suby,s=50,c=[[0.2,0.4,0.7]])
     
-    for i,txt in enumerate(n_1):
+    for i,txt in enumerate(n):
         bx.annotate(txt,(subx[i],suby[i]))
     bnnot = bx.annotate("", xy=(0,0), xytext=(10,10),textcoords="offset points",
                     bbox=dict(boxstyle="round", fc="w"),
