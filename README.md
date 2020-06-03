@@ -37,7 +37,7 @@ If the given keyword is not found as per the threshold value, the tool will ask 
 
 g) To search on the GUI, run the "main_GUI.py" file (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the Default threshold value for all the three cases by editing the "threshold.csv" file.
 
-h) To get a graph plot, run the "graph_plot.py". Enter the test-id for which you want to get the nearest test cases and press ENTER. The threshold value can be changed by editing the "threhold.csv" file. A new graph plot will be shown on the screen along with their test-ids. 
+h) To get a graph plot, run the "graph_plot.py". Enter the test-id for which you want to get the nearest test cases and press ENTER. The threshold value and the number of results wanted can be changed by editing the "threshold.csv" file. A new graph plot will be shown on the screen along with their test-ids. 
 
 To update/modify the test cases:
 
