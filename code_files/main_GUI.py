@@ -100,12 +100,14 @@ def keytest(keyword,testid,thres):
             print(final_output_2)
             search_string=search_str + str(search_id)
             To_csv(final_output_2, search_string, len(final_output_2), threshold) # Storing the results in a .csv/excel file
+            os.startfile("Similar_to_" + str(search_string) + ".csv")
             info_message = "No match found above " + str(threshold) + " threshold. Try some lower values of threshold. However, " + str(len(final_output_2)) + " top similar results are provided in the generated CSV file."
             tkmb.showinfo("Output", info_message)
         else:    
             print(final_intersection_output)
             search_string=search_str + str(search_id)
             To_csv(final_intersection_output, search_string, len(final_intersection_output), threshold) # Storing the results in a .csv/excel file
+            os.startfile("Similar_to_" + str(search_string) + ".csv")
             info_message = 'CSV file created. ' + str(len(final_intersection_output)) + ' similar test cases found'
             tkmb.showinfo("Output", info_message)
 
@@ -132,11 +134,13 @@ def keytest(keyword,testid,thres):
             print(output_1)
             search_string=search_str
             To_csv(output_1, search_string, len(output_1), threshold) # Storing the results in a .csv/excel file
+            os.startfile("Similar_to_" + str(search_string) + ".csv")
             info_message = "No match found above " + str(threshold) + " threshold. Try some lowers value of threshold. However, " + str(len(output_1)) + " top similar results are provided in the generated CSV file."
             tkmb.showinfo("Output", info_message)
         else:
             search_string=search_str
             To_csv(final_output_1, search_string, len(final_output_1), threshold) # Storing the results in a .csv/excel file
+            os.startfile("Similar_to_" + str(search_string) + ".csv")
             info_message = str(len(final_output_1)) + ' similar test cases found.' + " CSV file has been created."
             tkmb.showinfo("Output", info_message)
 
@@ -169,11 +173,13 @@ def keytest(keyword,testid,thres):
             print(output_2)
             search_string = str(search_id)
             To_csv(output_2, search_string, len(output_2), threshold) # Storing the results in a .csv/excel file
+            os.startfile("Similar_to_" + str(search_string) + ".csv")
             info_message = "No match found above " + str(threshold) + " threshold. Try some lowers value of threshold. However, " + str(len(output_2)) + " top similar results are provided in the generated CSV file."
             tkmb.showinfo("Output", info_message)
         else:
             search_string = str(search_id)
             To_csv(final_output_2, search_string, len(final_output_2), threshold) # Storing the results in a .csv/excel file
+            os.startfile("Similar_to_" + str(search_string) + ".csv")
             info_message = str(len(final_output_2)) + ' similar test cases found.' + " CSV file has been created."
             tkmb.showinfo("Output", info_message)
     else:
