@@ -20,7 +20,7 @@ f)To create the first embeddings of the test cases -
 
   1) Run the “automate_cre.py” file.
   
-  2) Place the document file containing the test cases (SampleTestCases.docx) in the “main_document” folder and terminate the process by selecting Ctrl+C, a file named “mainfile.data” will be created and then run embeddings_update.py.
+  2) Place the document file containing the test cases (SampleTestCases.docx) in the “main_document” folder and terminate the process by selecting Ctrl+C, a file named “mainfile.data” will be created and then run "embeddings_update.py".
   
   3) After getting the message “saved”, check for the 2 “.npz files” (“embeddings.npz” and “id.npz”) in the folder where all the python files have been saved.
   
@@ -43,8 +43,8 @@ To update/modify the test cases:
 
 If your test cases are in two or more .docx files then there are two steps you can follow:
 
-  1. Delete the existing .docx file from the "main_document" and save it somewhere. Run the "automate_cre.py" and place all the .docx files together in the "main_document" folder.
+  1. Delete the existing .docx file from the "main_document" and save it somewhere. Run the "automate_cre.py" and place all the .docx files ONE BY ONE (copying one file and pasting it and repeating the same procedure for all the files) in the "main_document" folder.
   
-  2. Merge all the .docx files (along with the existing one) in a single doc file and after deleting the existing doc file from "main_document", run the "automate_cre.py" and place the Merged doc file in that folder.
+  2. Merge all the .docx files (along with the existing one) in a single doc file and after deleting the existing doc file from "main_document", run the "automate_cre.py" and place the Merged doc file in the "main_document" folder.
 
 Now after doing any one of the above steps, terminate the "automate_cre.py" and run the "embeddings_update.py" file. You will get a message of embeddings getting saved.
