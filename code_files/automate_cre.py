@@ -12,6 +12,11 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
 		self.last_modified = datetime.now()
 		
 	def on_created(self, event): 
+		if datetime.now() - self.last_modified < timedelta(seconds=1):
+			return 
+		else:
+			self.last_modified = datetime.now()
+		paths.add(event.src_path) 
 		print("Event is created - % s." % event.src_path) 
 		# creat_emb(event.src_path) 
 
@@ -20,8 +25,8 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
 			return 
 		else:
 			self.last_modified = datetime.now()
+		paths.add(event.src_path)
 		print("Event is modified - % s." % event.src_path)
-		paths.append(event.src_path) 
 		# print("Hello")
 
 	def on_deleted(self, event): 
@@ -35,13 +40,14 @@ if __name__ == "__main__":
 	observer = watchdog.observers.Observer() 
 	observer.schedule(event_handler, path=src_path, recursive=True) 
 	observer.start() 
-	paths=[]
+	paths=set()
 	try: 
 		while True: 
 			time.sleep(10) 
 	except KeyboardInterrupt: 
 		observer.stop()
 		with open('mainfile.data','wb') as filehandle:
-			pickle.dump(paths,filehandle) 
-		print(paths)
-	observer.join() 
+			temp_array = list(paths)
+			pickle.dump(temp_array,filehandle) 
+		print(temp_array)
+	observer.join()
