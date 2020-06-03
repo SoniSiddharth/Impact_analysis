@@ -1,4 +1,5 @@
 import pickle
+import numpy as np
 from pre_process import creat_emb
 
 id=[]
