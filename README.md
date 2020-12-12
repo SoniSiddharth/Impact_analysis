@@ -6,7 +6,7 @@ Impact analysis of software change leveraging ML, NLP models from huge number of
 
 ## Architecture and Flow
 
-[!alt text](./images/architecture.PNG)
+![alt text](./images/architecture.PNG?raw=true)
 
 ## Preprocessing
 
@@ -16,7 +16,7 @@ Pre-Processing of Data - Data preprocessing is done to make the text in a form t
 
 The USE model provides better similarity index as compared to other models (ELMO, BERT). A simple example showing the cosine similarity using USE model is as follows:
 
-[!alt text](./images/testing_model.PNG)
+![alt text](./images/testing_model.PNG?raw=true)
 
 ---
 
@@ -55,15 +55,15 @@ The USE model provides better similarity index as compared to other models (ELMO
 
 1. Run `python3 main_GUI.py` (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the Default threshold value for all the three cases by editing the **threshold.csv** file.
 
-[!alt text](./images/gui.PNG)
+![alt text](./images/gui.PNG?raw=true)
 
 ## Output and plot
 
-[!alt text](./images/out.PNG)
+![!alt text](./images/out.PNG?raw=true)
 
 ---
 
-[!alt text](./images/plot.PNG)
+![!alt text](./images/plot.PNG?raw=true)
 
 2. To get a graph plot, run `python3 graph_plot.py`. Enter the test-id for which you want to get the nearest test cases and press ENTER. The threshold value can be changed by editing the **threshold.csv** file. A new graph plot will be shown on the screen along with their test-ids. 
 
