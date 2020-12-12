@@ -55,15 +55,28 @@ The USE model provides better similarity index as compared to other models (ELMO
 
 1. Run `python3 main_GUI.py` (it will take some time in the first time due to loading the model) then you can enter only keyword or only test-id or both. Provide the threshold value as per the need. You can also set the Default threshold value for all the three cases by editing the **threshold.csv** file.
 
-![alt text](./images/gui.PNG?raw=true)
+<img src="./images/gui.PNG"
+     alt="GUI"
+     style="display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;" />
 
 ## Output and plot
 
-![!alt text](./images/out.PNG?raw=true)
+<img src="./images/out.PNG"
+     alt="output"
+     style="display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;" />
 
----
-
-![!alt text](./images/plot.PNG?raw=true)
+<img src="./images/plot.PNG"
+     alt="plot"
+     style="display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;" />
 
 2. To get a graph plot, run `python3 graph_plot.py`. Enter the test-id for which you want to get the nearest test cases and press ENTER. The threshold value can be changed by editing the **threshold.csv** file. A new graph plot will be shown on the screen along with their test-ids. 
 
